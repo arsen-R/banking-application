@@ -1,5 +1,6 @@
 package com.arsen.authservice.model.entity;
 
+import com.arsen.common.model.entity.BaseEntity;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Table;

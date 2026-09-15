@@ -1,5 +1,6 @@
 package com.arsen.userservice.model.entity;
 
+import com.arsen.common.model.entity.BaseEntity;
 import jakarta.persistence.*;
 import lombok.*;
 

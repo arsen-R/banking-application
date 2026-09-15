@@ -1,4 +1,4 @@
-package com.arsen.authservice.model.entity;
+package com.arsen.common.model.entity;
 
 import jakarta.persistence.*;
 import lombok.Getter;

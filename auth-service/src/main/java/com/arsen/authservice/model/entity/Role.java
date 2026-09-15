@@ -1,6 +1,7 @@
 package com.arsen.authservice.model.entity;
 
 import com.arsen.authservice.model.enums.RoleName;
+import com.arsen.common.model.entity.BaseEntity;
 import jakarta.persistence.*;
 import lombok.*;
 
