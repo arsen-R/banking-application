@@ -13,3 +13,18 @@ spring:
     showSql: true
     databasePlatform: org.hibernate.dialect.PostgreSQLDialect
     database: postgresql
+
+  kafka:
+    bootstrap-servers: localhost:9092
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
+      acks: all
+      retries: 3
+      properties:
+        enable.idempotence: true
+
+logging:
+  level:
+    com.auth: DEBUG
+    org.springframework.kafka: INFO

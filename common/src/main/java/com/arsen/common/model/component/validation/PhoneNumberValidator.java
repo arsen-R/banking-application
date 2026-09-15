@@ -1,6 +1,6 @@
-package com.arsen.userservice.component.validation;
+package com.arsen.common.model.component.validation;
 
-import com.arsen.userservice.component.annotation.CellPhoneNumber;
+import com.arsen.common.model.component.annotation.CellPhoneNumber;
 import com.google.i18n.phonenumbers.NumberParseException;
 import com.google.i18n.phonenumbers.PhoneNumberUtil;
 import com.google.i18n.phonenumbers.Phonenumber;

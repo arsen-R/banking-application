@@ -1,4 +1,4 @@
-package com.arsen.userservice.model.request;
+package com.arsen.authservice.model.request;
 
 import com.arsen.common.model.component.annotation.CellPhoneNumber;
 import com.fasterxml.jackson.annotation.JsonFormat;
@@ -6,7 +6,7 @@ import jakarta.validation.constraints.*;
 
 import java.util.Date;
 
-public record CreateUserRequest(
+public record RegisterUserRequest(
         @NotBlank(message = "The username is required")
         String username,
         @NotBlank(message = "The email is required")
@@ -29,7 +29,4 @@ public record CreateUserRequest(
         @CellPhoneNumber
         String cellPhoneNumber
 ) {
-    public CreateUserRequest(String username, String email, String password, String authId,String firstName, String lastName, Date birthday, String cellPhoneNumber) {
-        this(username, email, password, firstName, authId, "", lastName, birthday, cellPhoneNumber);
-    }
 }
