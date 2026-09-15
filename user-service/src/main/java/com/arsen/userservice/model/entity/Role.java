@@ -1,4 +1,4 @@
-package com.arsen.userservice.model.entiry;
+package com.arsen.userservice.model.entity;
 
 import com.arsen.userservice.model.enums.RoleName;
 import jakarta.persistence.*;

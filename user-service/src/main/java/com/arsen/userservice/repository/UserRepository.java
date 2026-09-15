@@ -1,6 +1,6 @@
 package com.arsen.userservice.repository;
 
-import com.arsen.userservice.model.entiry.User;
+import com.arsen.userservice.model.entity.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;

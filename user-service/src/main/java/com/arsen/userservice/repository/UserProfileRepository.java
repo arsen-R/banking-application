@@ -1,6 +1,6 @@
 package com.arsen.userservice.repository;
 
-import com.arsen.userservice.model.entiry.UserProfile;
+import com.arsen.userservice.model.entity.UserProfile;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

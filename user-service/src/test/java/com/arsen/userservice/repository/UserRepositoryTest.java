@@ -1,21 +1,18 @@
 package com.arsen.userservice.repository;
 
-import com.arsen.userservice.model.entiry.Role;
-import com.arsen.userservice.model.entiry.User;
-import com.arsen.userservice.model.entiry.UserProfile;
+import com.arsen.userservice.model.entity.Role;
+import com.arsen.userservice.model.entity.User;
+import com.arsen.userservice.model.entity.UserProfile;
 import com.arsen.userservice.model.enums.RoleName;
 import com.arsen.userservice.model.enums.UserStatus;
 import com.arsen.userservice.util.DateUtil;
 import jakarta.validation.ConstraintViolationException;
-import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.data.jpa.test.autoconfigure.DataJpaTest;
 import org.springframework.boot.jdbc.test.autoconfigure.AutoConfigureTestDatabase;
-import org.springframework.dao.DataIntegrityViolationException;
 
-import java.time.Instant;
 import java.time.LocalDate;
 import java.util.Optional;
 import java.util.Set;

@@ -1,7 +1,7 @@
 package com.arsen.userservice.model.mapper;
 
 import com.arsen.userservice.model.dto.RoleDto;
-import com.arsen.userservice.model.entiry.Role;
+import com.arsen.userservice.model.entity.Role;
 import org.mapstruct.Mapper;
 import org.mapstruct.factory.Mappers;
 

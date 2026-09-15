@@ -1,4 +1,4 @@
-package com.arsen.userservice.model.entiry;
+package com.arsen.userservice.model.entity;
 
 import com.arsen.userservice.model.enums.UserStatus;
 import jakarta.persistence.*;
@@ -29,7 +29,7 @@ public class User extends BaseEntity {
     @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @JoinColumn(name = "user_profile_id", referencedColumnName = "id", nullable = false, unique = true)
     private UserProfile userProfile;
-    @ManyToMany(fetch = FetchType.LAZY)
+    @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.PERSIST)
     @JoinTable(name = "user_roles", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "role_id"))
     private Set<Role> roles = new HashSet<>();
 

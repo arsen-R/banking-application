@@ -1,15 +1,12 @@
 package com.arsen.userservice.repository;
 
-import com.arsen.userservice.model.entiry.UserProfile;
+import com.arsen.userservice.model.entity.UserProfile;
 import com.arsen.userservice.util.DateUtil;
-import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.data.jpa.test.autoconfigure.DataJpaTest;
 import org.springframework.boot.jdbc.test.autoconfigure.AutoConfigureTestDatabase;
 
-import java.sql.Date;
-import java.time.Instant;
 import java.time.LocalDate;
 import java.util.Optional;
 

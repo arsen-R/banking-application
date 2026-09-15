@@ -1,4 +1,4 @@
-package com.arsen.userservice.model.entiry;
+package com.arsen.userservice.model.entity;
 
 import jakarta.annotation.Nullable;
 import jakarta.persistence.*;
@@ -15,17 +15,16 @@ import java.util.Date;
 @NoArgsConstructor
 @AllArgsConstructor
 public class UserProfile extends BaseEntity {
-    @NonNull
+    @Column(nullable = false, name = "first_name")
     private String firstName;
-    @Nullable
+    @Column(name = "middle_name")
     private String middleName;
-    @NonNull
+    @Column(nullable = false, name = "last_name")
     private String lastName;
-    @NonNull
+    @Column(nullable = false, name = "birthday")
     @DateTimeFormat(pattern = "dd/MM/yyyy")
     private Date birthday;
-    @Column(name = "cell_phone_number")
-    @NonNull
+    @Column(nullable = false, name = "cell_phone_number")
     private String cellPhoneNumber;
     @OneToOne(mappedBy = "userProfile")
     @JoinColumn(name = "user_id", nullable = false, unique = true)

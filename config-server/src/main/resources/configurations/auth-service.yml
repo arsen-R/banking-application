@@ -8,7 +8,7 @@ spring:
     driver-class-name: org.postgresql.Driver
   jpa:
     hibernate:
-      ddl-Auto: create-drop
+      ddl-Auto: update
     defer-datasource-initialization: true
     showSql: true
     databasePlatform: org.hibernate.dialect.PostgreSQLDialect

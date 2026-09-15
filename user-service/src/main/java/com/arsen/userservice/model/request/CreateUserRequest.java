@@ -2,6 +2,7 @@ package com.arsen.userservice.model.request;
 
 import com.arsen.userservice.model.dto.RoleDto;
 import com.arsen.userservice.component.annotation.CellPhoneNumber;
+import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.validation.constraints.*;
 
 import java.util.Date;
@@ -25,6 +26,7 @@ public record CreateUserRequest(
         String lastName,
         @NotNull(message = "The birthday is required")
         @Past(message = "The birthday must be in the past")
+        @JsonFormat(pattern = "dd/MM/yyyy")
         Date birthday,
         @NotBlank(message = "The cell phone number is required")
         @CellPhoneNumber

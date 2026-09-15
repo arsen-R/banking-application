@@ -4,8 +4,8 @@ import com.arsen.userservice.exception.CreateUserException;
 import com.arsen.userservice.exception.InvalidPasswordException;
 import com.arsen.userservice.exception.UserNotFoundException;
 import com.arsen.userservice.model.dto.UserDto;
-import com.arsen.userservice.model.entiry.User;
-import com.arsen.userservice.model.entiry.UserProfile;
+import com.arsen.userservice.model.entity.User;
+import com.arsen.userservice.model.entity.UserProfile;
 import com.arsen.userservice.model.enums.UserStatus;
 import com.arsen.userservice.model.mapper.RoleMapper;
 import com.arsen.userservice.model.mapper.UserMapper;
@@ -22,6 +22,8 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import java.time.Instant;
+import java.util.Date;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -103,6 +105,7 @@ public class UserServiceImpl implements UserService {
         user.getUserProfile().setLastName(userUpdateRequest.lastName());
         user.getUserProfile().setCellPhoneNumber(userUpdateRequest.cellPhoneNumber());
         user.getUserProfile().setBirthday(userUpdateRequest.birthday());
+        user.setUpdateTime(Date.from(Instant.now()));
 
         User savedUser = userRepository.saveAndFlush(user);
         return userMapper.userToUserDto(savedUser);

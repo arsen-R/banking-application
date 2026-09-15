@@ -1,7 +1,7 @@
-package com.arsen.userservice.repository;
+package com.arsen.authservice.repository;
 
-import com.arsen.userservice.model.entity.Role;
-import com.arsen.userservice.model.enums.RoleName;
+import com.arsen.authservice.model.entity.Role;
+import com.arsen.authservice.model.enums.RoleName;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
