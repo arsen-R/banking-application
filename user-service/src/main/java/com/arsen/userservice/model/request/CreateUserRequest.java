@@ -1,12 +1,10 @@
 package com.arsen.userservice.model.request;
 
-import com.arsen.userservice.model.dto.RoleDto;
 import com.arsen.userservice.component.annotation.CellPhoneNumber;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.validation.constraints.*;
 
 import java.util.Date;
-import java.util.Set;
 
 public record CreateUserRequest(
         @NotBlank(message = "The username is required")
@@ -17,8 +15,7 @@ public record CreateUserRequest(
         @NotBlank(message = "The password is required")
         @Size(min = 8, message = "Must be at least 8 characters")
         String password,
-        @NotEmpty(message = "At least one role is required")
-        Set<RoleDto> roles,
+        String authId,
         @NotBlank(message = "The first name is required")
         String firstName,
         String middleName,
@@ -32,7 +29,7 @@ public record CreateUserRequest(
         @CellPhoneNumber
         String cellPhoneNumber
 ) {
-    public CreateUserRequest(String username, String email, String password, Set<RoleDto> roles, String firstName, String lastName, Date birthday, String cellPhoneNumber) {
-        this(username, email, password, roles, firstName, "", lastName, birthday, cellPhoneNumber);
+    public CreateUserRequest(String username, String email, String password, String authId,String firstName, String lastName, Date birthday, String cellPhoneNumber) {
+        this(username, email, password, firstName, authId, "", lastName, birthday, cellPhoneNumber);
     }
 }
