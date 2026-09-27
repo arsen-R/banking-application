@@ -14,6 +14,10 @@ import java.util.stream.Collectors;
 public class CustomUserDetail implements UserDetails {
     private final User user;
 
+    public String getUserId() {
+        return this.user.getId();
+    }
+
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         return this.user.getRoles().stream()

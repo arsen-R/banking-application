@@ -26,6 +26,7 @@ public class JwtServiceImpl implements JwtService {
     private static final String USERNAME = "username";
     private static final String IS_ENABLED = "isEnabled";
     private static final String IS_ACCOUNT_NON_LOCKED = "isAccountNonLocked";
+    private static final String USER_ID = "userId";
 
     @Override
     public String extractUsername(String token) {
@@ -52,6 +53,9 @@ public class JwtServiceImpl implements JwtService {
     @Override
     public String generateToken(UserDetails userDetails) {
         Map<String, Object> claims = new HashMap<>();
+        if (userDetails instanceof CustomUserDetail customUserDetail) {
+            claims.put(USER_ID, customUserDetail.getUserId());
+        }
         return createToken(claims, userDetails);
     }
 
