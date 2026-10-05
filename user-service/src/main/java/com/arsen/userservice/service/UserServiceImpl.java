@@ -84,7 +84,7 @@ public class UserServiceImpl implements UserService {
         user.getUserProfile().setLastName(userUpdateRequest.lastName());
         user.getUserProfile().setCellPhoneNumber(userUpdateRequest.cellPhoneNumber());
         user.getUserProfile().setBirthday(userUpdateRequest.birthday());
-        user.setUpdateTime(Date.from(Instant.now()));
+        user.setUpdatedAt(Date.from(Instant.now()));
 
         User savedUser = userRepository.saveAndFlush(user);
         return userMapper.userToUserDto(savedUser);

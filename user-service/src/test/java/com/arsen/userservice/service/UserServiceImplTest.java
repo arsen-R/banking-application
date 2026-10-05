@@ -11,7 +11,7 @@ import com.arsen.userservice.model.request.CreateUserRequest;
 import com.arsen.userservice.model.request.UserUpdateRequest;
 import com.arsen.userservice.model.response.PageResponse;
 import com.arsen.userservice.repository.UserRepository;
-import com.arsen.userservice.util.DateUtil;
+import com.arsen.common.utils.DateUtil;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;

@@ -84,4 +84,11 @@ public class JwtServiceImpl implements JwtService {
         byte[] keyBytes = Base64.getDecoder().decode(JWT_SECRET_KEY);
         return Keys.hmacShaKeyFor(keyBytes);
     }
+
+    @Override
+    public long getExpirationMillis(String token) {
+        Date expiration = extractClaim(token, Claims::getExpiration);
+        long diff = expiration.getTime() - System.currentTimeMillis();
+        return Math.max(diff, -1);
+    }
 }

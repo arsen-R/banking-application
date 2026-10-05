@@ -2,11 +2,7 @@ package com.arsen.userservice.repository;
 
 import com.arsen.userservice.model.entity.User;
 import com.arsen.userservice.model.entity.UserProfile;
-import com.arsen.userservice.model.enums.RoleName;
-import com.arsen.userservice.model.enums.UserStatus;
-import com.arsen.userservice.util.DateUtil;
-import jakarta.validation.ConstraintViolationException;
-import org.junit.jupiter.api.BeforeEach;
+import com.arsen.common.utils.DateUtil;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.data.jpa.test.autoconfigure.DataJpaTest;
@@ -14,7 +10,6 @@ import org.springframework.boot.jdbc.test.autoconfigure.AutoConfigureTestDatabas
 
 import java.time.LocalDate;
 import java.util.Optional;
-import java.util.Set;
 import java.util.UUID;
 
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
