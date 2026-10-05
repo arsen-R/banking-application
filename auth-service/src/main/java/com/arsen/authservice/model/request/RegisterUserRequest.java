@@ -15,7 +15,6 @@ public record RegisterUserRequest(
         @NotBlank(message = "The password is required")
         @Size(min = 8, message = "Must be at least 8 characters")
         String password,
-        String authId,
         @NotBlank(message = "The first name is required")
         String firstName,
         String middleName,

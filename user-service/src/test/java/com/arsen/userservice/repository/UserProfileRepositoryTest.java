@@ -1,7 +1,7 @@
 package com.arsen.userservice.repository;
 
 import com.arsen.userservice.model.entity.UserProfile;
-import com.arsen.userservice.util.DateUtil;
+import com.arsen.common.utils.DateUtil;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.data.jpa.test.autoconfigure.DataJpaTest;

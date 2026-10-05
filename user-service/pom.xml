@@ -31,7 +31,6 @@
         <org.mapstruct.version>1.5.5.Final</org.mapstruct.version>
         <io.jsonwebtoken>0.13.0</io.jsonwebtoken>
         <spring-cloud.version>2025.1.2</spring-cloud.version>
-        <com.googlecode.libphonenumber>9.0.38</com.googlecode.libphonenumber>
     </properties>
     <dependencies>
         <dependency>
@@ -124,12 +123,6 @@
             <groupId>com.h2database</groupId>
             <artifactId>h2</artifactId>
             <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>com.googlecode.libphonenumber</groupId>
-            <artifactId>libphonenumber</artifactId>
-            <version>${com.googlecode.libphonenumber}</version>
-            <scope>compile</scope>
         </dependency>
         <dependency>
             <groupId>com.arsen</groupId>

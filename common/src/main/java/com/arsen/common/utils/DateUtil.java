@@ -1,4 +1,4 @@
-package com.arsen.userservice.util;
+package com.arsen.common.utils;
 
 import java.time.LocalDate;
 import java.time.ZoneId;

@@ -1,9 +1,9 @@
 package com.arsen.authservice.service.impl;
 
 import com.arsen.authservice.exception.RegisterUserException;
+import com.arsen.authservice.kafka.KafkaProduce;
 import com.arsen.authservice.model.entity.User;
 import com.arsen.authservice.model.enums.UserStatus;
-import com.arsen.authservice.model.mapper.UserMapper;
 import com.arsen.authservice.model.request.RegisterUserRequest;
 import com.arsen.authservice.model.response.JwtResponse;
 import com.arsen.authservice.repository.UserRepository;
@@ -12,6 +12,7 @@ import com.arsen.authservice.service.JwtService;
 import com.arsen.common.model.event.UserCreatedEvent;
 import jakarta.transaction.Transactional;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.kafka.clients.producer.KafkaProducer;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -21,18 +22,18 @@ import org.springframework.stereotype.Service;
 public class AuthServiceImpl implements AuthService {
     private final UserRepository userRepository;
     private final PasswordEncoder passwordEncoder;
-    private final KafkaTemplate<String, Object> kafkaTemplate;
+    private final KafkaProduce kafkaProduce;
     private final JwtService jwtService;
 
     private static final String USER_CREATED_TOPIC = "user-created-topic";
 
     public AuthServiceImpl(UserRepository userRepository,
                            PasswordEncoder passwordEncoder,
-                           KafkaTemplate<String, Object> kafkaTemplate,
+                           KafkaProduce kafkaProduce,
                            JwtService jwtService) {
         this.userRepository = userRepository;
         this.passwordEncoder = passwordEncoder;
-        this.kafkaTemplate = kafkaTemplate;
+        this.kafkaProduce = kafkaProduce;
         this.jwtService = jwtService;
     }
 
@@ -57,11 +58,11 @@ public class AuthServiceImpl implements AuthService {
                 savedUser.getId(),
                 savedUser.getUsername()
         );
-        kafkaTemplate.send(USER_CREATED_TOPIC, savedUser.getId(), event);
-
+        kafkaProduce.sendRegisterUserMessage(event);
         String accessToken = jwtService.generateToken(new CustomUserDetail(savedUser));
         return JwtResponse.builder()
                 .accessToken(accessToken)
+                .tokenType("Bearer")
                 .expiresIn(jwtService.getExpirationMillis(accessToken))
                 .build();
     }
